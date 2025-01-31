@@ -19,12 +19,17 @@ h1 {
 }
 
 .game-link {
-    display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+}
+
+a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 #wam {
