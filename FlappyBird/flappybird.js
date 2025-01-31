@@ -66,54 +66,68 @@ window.onload = function(){
     document.addEventListener("keydown", moveBird);
 }
 
+const targetFPS = 60;
+const frameInterval = 1000 / targetFPS;
+let lastFrameTime = performance.now();
+
 function update() {
     requestAnimationFrame(update); // sets up an animation loop where this update function will happen before the next frame is drawn
-    if(gameOver) {
-        return;
-    }
-    context.clearRect(0, 0, board.width, board.height)
+    
+    const currentTime = performance.now();
+    const elapsed = currentTime - lastFrameTime;
 
-    // bird
-    velocityY += gravity;
-    bird.y = Math.max(bird.y + velocityY, 0);
-    context.drawImage(birdImgs[birdImgsIndex], bird.x, bird.y, bird.width, bird.height);
-
-    if(bird.y + bird.height > board.height) {
-        gameOver = true;
-    }
-
-    // pipes
-    for(let i = 0; i < pipeArray.length; i++) {
-        let pipe = pipeArray[i];
-        velocityX -= 0.0003;
-        pipe.x += velocityX;
-        context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
-
-        if(!pipe.passed && bird.x > pipe.x + pipe.width) {
-            score += 0.5;
-            pipe.passed = true;
-            pointSound.play();
+    if (elapsed >= frameInterval) {
+        // Update lastFrameTime, accounting for any excess time
+        lastFrameTime = currentTime - (elapsed % frameInterval);
+  
+        if(gameOver) {
+            return;
         }
 
-        if(detectCollision(bird, pipe)) {
+        context.clearRect(0, 0, board.width, board.height)
+    
+        // bird
+        velocityY += gravity;
+        bird.y = Math.max(bird.y + velocityY, 0);
+        context.drawImage(birdImgs[birdImgsIndex], bird.x, bird.y, bird.width, bird.height);
+    
+        if(bird.y + bird.height > board.height) {
             gameOver = true;
-            hitSound.play();
+        }
+    
+        // pipes
+        for(let i = 0; i < pipeArray.length; i++) {
+            let pipe = pipeArray[i];
+            pipe.x += velocityX;
+            context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
+    
+            if(!pipe.passed && bird.x > pipe.x + pipe.width) {
+                score += 0.5;
+                pipe.passed = true;
+                pointSound.play();
+            }
+    
+            if(detectCollision(bird, pipe)) {
+                gameOver = true;
+                hitSound.play();
+            }
+        }
+    
+        // clear pipes
+        while(pipeArray.length > 0 && pipeArray[0].x < -1 * pipeWidth) {
+            pipeArray.shift(); // removes the first length
+        }
+    
+        // score
+        context.fillStyle = "white";
+        context.font= "45px sans-serif";
+        context.fillText(score, 5, 45);
+    
+        if(gameOver) {
+            context.fillText("GAME OVER", 5, 90);
         }
     }
-
-    // clear pipes
-    while(pipeArray.length > 0 && pipeArray[0].x < -1 * pipeWidth) {
-        pipeArray.shift(); // removes the first length
-    }
-
-    // score
-    context.fillStyle = "white";
-    context.font= "45px sans-serif";
-    context.fillText(score, 5, 45);
-
-    if(gameOver) {
-        context.fillText("GAME OVER", 5, 90);
-    }
+    
 }
 
 function animateBird() {
