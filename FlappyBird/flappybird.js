@@ -46,6 +46,7 @@ window.onload = function(){
     board.height = boardHeight;
     board.width = boardWidth;
     context = board.getContext("2d"); // used for drawing on the board
+    board.addEventListener("click", moveBird2);
 
     for(let i = 0; i < 4; i++){
         let birdImg = new Image();
@@ -163,6 +164,18 @@ function moveBird(e) {
             score = 0;
             gameOver = false;
         }
+    }
+}
+
+function moveBird2() {
+    wingSound.play();
+    velocityY = Math.min(velocityY-6, -6);
+
+    if(gameOver) {
+        bird.y = birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
     }
 }
 
