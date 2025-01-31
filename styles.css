@@ -35,3 +35,12 @@ h1 {
 #wam:hover {
     background-color: #84C1D7;
 }
+
+#fb {
+    background-color: #F9D800;
+    color: #000000;
+}
+
+#fb:hover {
+    background-color: #D1B100;
+}
