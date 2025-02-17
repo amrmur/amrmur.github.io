@@ -50,6 +50,15 @@ a {
     background-color: #D1B100;
 }
 
+#dj {
+    background-color: #D3D3D3;
+    color: #009000;
+}
+
+#dj:hover {
+    background-color: #A9A9A9;
+}
+
 #link {
     background-color: #000000;
     color: #ffffff;
