@@ -184,12 +184,12 @@ function placePlatforms(){
 
     platformArray.push(platform);
     
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 8; i++){
         let randomX = Math.floor(Math.random() * boardWidth*5/6); // (0-1) * boardWidth*5/6
         platform = {
             img: platformImg,
             x: randomX,
-            y: boardHeight - 120*i - 150,
+            y: boardHeight - 75*i - 150,
             width: platformWidth,
             height: platformHeight
         }
