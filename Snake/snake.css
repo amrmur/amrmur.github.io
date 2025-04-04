@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: black;
+}
+
+#screen {
+  margin-top: 50px;
+}
