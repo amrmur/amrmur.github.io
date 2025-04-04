@@ -1,79 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 50px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 50px;
 }
 
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: inline-block;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
 
 h1 {
-    color: #333;
+  color: #333;
 }
 
 .game-link {
-    margin-top: 20px;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 a {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 #sn {
-    background-color: #008000; 
-    color: #FF0000; 
+  background-color: #88f088;
+  color: #ff6666;
 }
 
 #sn:hover {
-    background-color: #006400;
+  background-color: #88ff88;
 }
 
-
 #wam {
-    background-color: #ADD8E6;
-    color: #0056b3;
+  background-color: #add8e6;
+  color: #0056b3;
 }
 
 #wam:hover {
-    background-color: #84C1D7;
+  background-color: #84c1d7;
 }
 
 #fb {
-    background-color: #F9D800;
-    color: #000000;
+  background-color: #f9d800;
+  color: #000000;
 }
 
 #fb:hover {
-    background-color: #D1B100;
+  background-color: #d1b100;
 }
 
 #dj {
-    background-color: #D3D3D3;
-    color: #009000;
+  background-color: #d3d3d3;
+  color: #009000;
 }
 
 #dj:hover {
-    background-color: #A9A9A9;
+  background-color: #a9a9a9;
 }
 
 #link {
-    background-color: #000000;
-    color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 #link:hover {
-    background-color: #333333;
+  background-color: #333333;
 }
