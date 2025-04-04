@@ -32,6 +32,16 @@ a {
     margin: 0 auto;
 }
 
+#sn {
+    background-color: #008000; 
+    color: #FF0000; 
+}
+
+#sn:hover {
+    background-color: #006400;
+}
+
+
 #wam {
     background-color: #ADD8E6;
     color: #0056b3;
